@@ -1,5 +1,8 @@
-export type Post = {
-  title: string;
+export type PostMeta = {
+  publishedDate: Date;
+  updatedDate: Date;
+  description: string;
+  image: string;
   slug: string;
-  content: string;
+  title: string;
 };
