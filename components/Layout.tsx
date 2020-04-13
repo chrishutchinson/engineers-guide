@@ -13,13 +13,6 @@ const Layout: React.FC = ({ children }) => {
     <>
       <GlobalStyle />
       <Accessibility />
-      <Head>
-        <html lang="en" />
-        <link
-          href="https://fonts.googleapis.com/css?family=IBM+Plex+Serif:400,700|IBM+Plex+Mono:400,700&display=swap"
-          rel="stylesheet"
-        />
-      </Head>
 
       <main>
         <header>

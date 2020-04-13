@@ -15,7 +15,7 @@ const Post: React.FC<{
 
   return (
     <>
-      <Head>
+      <Head key="post">
         <title>An Engineer's Guide to... {meta.title}</title>
         <meta name="description" content={meta.description} />
         <meta name="date" content={meta.publishedDate.toISOString()} />
@@ -41,7 +41,13 @@ const Post: React.FC<{
         <style jsx global>
           {`
             h2 {
-              font-size: 40px;
+              font-size: 28px;
+            }
+
+            @media screen and (min-width: 768px) {
+              h2 {
+                font-size: 40px;
+              }
             }
 
             aside {

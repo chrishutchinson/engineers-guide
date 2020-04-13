@@ -6,6 +6,7 @@ export const Accessibility = () => {
       <a href="#main" tabIndex={0}>
         Skip to main content
       </a>
+
       <style jsx>
         {`
           a {
