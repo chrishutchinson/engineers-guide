@@ -1,0 +1,51 @@
+import Post from "../../components/Post";
+
+export const meta = {
+  publishedDate: new Date(2020, 3, 13),
+  updatedDate: new Date(2020, 3, 22),
+  description: "....",
+  slug: "an-engineers-guide",
+  title: "engineers.guide"
+};
+
+export default ({ children }) => <Post meta={meta}>{children}</Post>;
+
+<p>
+  Hello 👋 and welcome to <a href="https://engineers.guide">engineers.guide</a>,
+  or <em>An Engineer’s Guide to...</em>. The writing you’ll find here is
+  intended to be straightforward, easy to explore, and with plenty of onward
+  reading. The target audience is engineers (of any kind, but predominantly
+  software engineers), and the subject range will vary within the discipline,
+  and in some cases might even jump out to related disciplines, like design,
+  law, or public speaking.
+</p>
+<p>
+  The guides are here to introduce a topic within engineering, and give a strong
+  foundation for you to go and build on that knowledge. No matter your
+  experience, they are written without the need for extensive prior
+  understanding. Any relevant pre-reading will be detailed alongside the guide’s
+  introduction, and critical concepts will be introduced as part of the guide.
+</p>
+<p>
+  The guides you’ll find on the site, along with all the code that runs it, are
+  managed by{" "}
+  <a
+    href="https://github.com/chrishutchinson/engineers-guide"
+    className="external"
+  >
+    this git repo
+  </a>
+  . If you want to file a request for a new guide, head on over to the <a
+    href="https://github.com/chrishutchinson/engineers-guide/issues"
+    className="external"
+  >
+    Issues page
+  </a> in GitHub. Do the same to help fix a typo or grammatical error, or even better,
+  file a PR directly against the Markdown file 🙇‍♂️!
+</p>
+<p>Thanks,</p>
+<p>
+  <a href="https://www.twitter.com/chrishutchinson" className="external">
+    Chris
+  </a>
+</p>

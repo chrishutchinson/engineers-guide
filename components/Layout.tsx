@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import GlobalStyle from "./GlobalStyle";
 import { getGuides } from "../guides";
+import { colors } from "../utils/theme";
 
 const Layout: React.FC = ({ children }) => {
   const guides = getGuides(4);
@@ -46,25 +47,43 @@ const Layout: React.FC = ({ children }) => {
 
       <footer>
         &copy; {new Date().getFullYear()} ~{" "}
-        <a href="https://www.twitter.com/_engineersguide">Twitter</a> |{" "}
-        <a href="https://www.github.com/chrishutchinson/engineers-guide">
+        <a href="https://www.twitter.com/_engineersguide" className="external">
+          Twitter
+        </a>{" "}
+        |{" "}
+        <a
+          href="https://www.github.com/chrishutchinson/engineers-guide"
+          className="external"
+        >
           GitHub
         </a>
       </footer>
 
       <style jsx>{`
         main {
+          --left-border-width: 14px;
           background: #fff;
-          padding: 20px;
+          padding: 20px 20px 20px calc(20px + var(--left-border-width));
           border: 1px dashed #3a3a3a;
           max-width: 960px;
           margin: 0 auto;
-          box-shadow: 5px 5px 0px #333;
+          box-shadow: 5px 5px 0px #333,
+            inset var(--left-border-width) 0 ${colors.light.primary};
+        }
+
+        @media (prefers-color-scheme: dark) {
+          main {
+            background: #333;
+            box-shadow: 5px 5px 0px #555,
+              inset var(--left-border-width) 0 ${colors.dark.primary};
+          }
         }
 
         @media screen and (min-width: 768px) {
+          --left-border-width: 14px;
+
           main {
-            padding: 50px 20px;
+            padding: 50px 20px 20px calc(20px + var(--left-border-width));
           }
         }
 
@@ -73,7 +92,7 @@ const Layout: React.FC = ({ children }) => {
         }
 
         header h1 {
-          text-transform: uppercase;
+          // text-transform: uppercase;
           letter-spacing: 3px;
           font-weight: 400;
           font-size: 38px;
@@ -84,7 +103,6 @@ const Layout: React.FC = ({ children }) => {
 
         header h1 a {
           text-decoration: none;
-          color: #333;
         }
 
         @media screen and (min-width: 768px) {
