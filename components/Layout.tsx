@@ -11,22 +11,17 @@ const Layout: React.FC = ({ children }) => {
 
   return (
     <>
+      <GlobalStyle />
       <Accessibility />
+      <Head>
+        <html lang="en" />
+        <link
+          href="https://fonts.googleapis.com/css?family=IBM+Plex+Serif:400,700|IBM+Plex+Mono:400,700&display=swap"
+          rel="stylesheet"
+        />
+      </Head>
 
       <main>
-        <GlobalStyle />
-        <Head>
-          <html lang="en" />
-          <link
-            href="https://fonts.googleapis.com/css?family=IBM+Plex+Serif:400,700|IBM+Plex+Mono:400,700&display=swap"
-            rel="stylesheet"
-          />
-          <meta
-            name="description"
-            content="Straightforward guides to core concepts for all software engineers"
-          />
-        </Head>
-
         <header>
           <h1>
             <Link href="/">
@@ -38,7 +33,7 @@ const Layout: React.FC = ({ children }) => {
             <nav>
               <h2>Latest</h2>
               <ul>
-                {getGuides(4).map(guide => (
+                {getGuides(4).map((guide) => (
                   <li key={guide.slug}>
                     <Link href={`/to/${guide.slug}`}>
                       <a>{guide.title}</a>

@@ -1,11 +1,13 @@
+import Head from "next/head";
 import Post from "../../components/Post";
 
 export const meta = {
   publishedDate: new Date(2020, 3, 13),
   updatedDate: new Date(2020, 3, 22),
-  description: "....",
+  description:
+    "An introduction to An Engineer’s Guide to..., filled with straightforward introductory guides to core topics for software engineers of all skill levels.",
   slug: "an-engineers-guide",
-  title: "engineers.guide"
+  title: "engineers.guide",
 };
 
 export default ({ children }) => <Post meta={meta}>{children}</Post>;

@@ -14,53 +14,55 @@ const Post: React.FC<{
   ).format("dddd MMMM Do, YYYY");
 
   return (
-    <Layout>
+    <>
       <Head>
-        <title>{meta.title}</title>
+        <title>An Engineer's Guide to... {meta.title}</title>
         <meta name="description" content={meta.description} />
         <meta name="date" content={meta.publishedDate.toISOString()} />
       </Head>
 
-      <div id="main">
-        <h2>{meta.title}</h2>
-        <aside>
-          <time
-            title={`${
-              meta.updatedDate ? "Last updated" : "Originally published"
-            } on ${dateString}`}
-          >
-            📆 {dateString}
-            {meta.updatedDate ? " [Updated]" : null}
-          </time>
-        </aside>
+      <Layout>
+        <div id="main">
+          <h2>{meta.title}</h2>
+          <aside>
+            <time
+              title={`${
+                meta.updatedDate ? "Last updated" : "Originally published"
+              } on ${dateString}`}
+            >
+              📆 {dateString}
+              {meta.updatedDate ? " [Updated]" : null}
+            </time>
+          </aside>
 
-        {children}
-      </div>
+          {children}
+        </div>
 
-      <style jsx global>
-        {`
-          h2 {
-            font-size: 40px;
-          }
+        <style jsx global>
+          {`
+            h2 {
+              font-size: 40px;
+            }
 
-          aside {
-            margin-bottom: 22px;
-          }
+            aside {
+              margin-bottom: 22px;
+            }
 
-          aside time {
-            font-family: "IBM Plex Mono", Helvetica;
-            font-size: 14px;
-          }
+            aside time {
+              font-family: "IBM Plex Mono", Helvetica;
+              font-size: 14px;
+            }
 
-          p {
-            font-size: 20px;
-            line-height: 2em;
-            margin-bottom: 1.5em;
-            max-width: 710px;
-          }
-        `}
-      </style>
-    </Layout>
+            p {
+              font-size: 20px;
+              line-height: 2em;
+              margin-bottom: 1.5em;
+              max-width: 710px;
+            }
+          `}
+        </style>
+      </Layout>
+    </>
   );
 };
 
