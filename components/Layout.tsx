@@ -3,19 +3,27 @@ import Link from "next/link";
 
 import GlobalStyle from "./GlobalStyle";
 import { getGuides } from "../guides";
-import { colors } from "../utils/theme";
+import { getTheme } from "../utils/theme";
+import { Accessibility } from "./Accessibility";
 
 const Layout: React.FC = ({ children }) => {
   const guides = getGuides(4);
 
   return (
     <>
+      <Accessibility />
+
       <main>
         <GlobalStyle />
         <Head>
+          <html lang="en" />
           <link
             href="https://fonts.googleapis.com/css?family=IBM+Plex+Serif:400,700|IBM+Plex+Mono:400,700&display=swap"
             rel="stylesheet"
+          />
+          <meta
+            name="description"
+            content="Straightforward guides to core concepts for all software engineers"
           />
         </Head>
 
@@ -68,14 +76,15 @@ const Layout: React.FC = ({ children }) => {
           max-width: 960px;
           margin: 0 auto;
           box-shadow: 5px 5px 0px #333,
-            inset var(--left-border-width) 0 ${colors.light.primary};
+            inset var(--left-border-width) 0 ${getTheme("light").colors.primary};
         }
 
         @media (prefers-color-scheme: dark) {
           main {
             background: #333;
             box-shadow: 5px 5px 0px #555,
-              inset var(--left-border-width) 0 ${colors.dark.primary};
+              inset var(--left-border-width) 0
+                ${getTheme("dark").colors.primary};
           }
         }
 

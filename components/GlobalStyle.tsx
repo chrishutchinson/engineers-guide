@@ -1,4 +1,4 @@
-import { colors } from "../utils/theme";
+import { getTheme } from "../utils/theme";
 
 const GlobalStyle = () => {
   return (
@@ -38,12 +38,12 @@ const GlobalStyle = () => {
       a {
         text-decoration-thickness: 2px;
         position: relative;
-        color: ${colors.light.primary};
+        color: ${getTheme("light").colors.primary};
       }
 
       @media (prefers-color-scheme: dark) {
         a {
-          color: ${colors.dark.primary};
+          color: ${getTheme("dark").colors.primary};
         }
       }
 
@@ -54,14 +54,14 @@ const GlobalStyle = () => {
       a:focus,
       a:hover,
       a:active {
-        color: ${colors.light.secondary};
+        color: ${getTheme("light").colors.secondary};
       }
 
       @media (prefers-color-scheme: dark) {
         a:focus,
         a:hover,
         a:active {
-          color: ${colors.dark.secondary};
+          color: ${getTheme("dark").colors.secondary};
         }
       }
 

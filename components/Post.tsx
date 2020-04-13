@@ -33,6 +33,7 @@ const Post: React.FC<{
             {meta.updatedDate ? " [Updated]" : null}
           </time>
         </aside>
+
         {children}
       </div>
 
