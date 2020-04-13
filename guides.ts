@@ -4,10 +4,10 @@ type Guide = {
 };
 
 const guides: Guide[] = [
-  {
-    title: "engineers.guide",
-    slug: "an-engineers-guide",
-  },
+  // {
+  //   title: "engineers.guide",
+  //   slug: "an-engineers-guide",
+  // },
 ];
 
 export const getGuides = (first: number) => {
