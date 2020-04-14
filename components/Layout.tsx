@@ -1,44 +1,23 @@
-import Head from "next/head";
 import Link from "next/link";
 
+import { getTheme } from "../utils/theme";
+
 import GlobalStyle from "./GlobalStyle";
-import { getGuides } from "../guides";
+import { Accessibility } from "./Accessibility";
 
 const Layout: React.FC = ({ children }) => {
-  const guides = getGuides(4);
-
   return (
     <>
-      <main>
-        <GlobalStyle />
-        <Head>
-          <link
-            href="https://fonts.googleapis.com/css?family=IBM+Plex+Serif:400,700|IBM+Plex+Mono:400,700&display=swap"
-            rel="stylesheet"
-          />
-        </Head>
+      <GlobalStyle />
+      <Accessibility />
 
+      <main>
         <header>
           <h1>
             <Link href="/">
               <a>An Engineer's Guide to...</a>
             </Link>
           </h1>
-
-          {guides.length > 0 && (
-            <nav>
-              <h2>Latest</h2>
-              <ul>
-                {getGuides(4).map(guide => (
-                  <li key={guide.slug}>
-                    <Link href={`/to/${guide.slug}`}>
-                      <a>{guide.title}</a>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </nav>
-          )}
         </header>
 
         {children}
@@ -46,25 +25,44 @@ const Layout: React.FC = ({ children }) => {
 
       <footer>
         &copy; {new Date().getFullYear()} ~{" "}
-        <a href="https://www.twitter.com/_engineersguide">Twitter</a> |{" "}
-        <a href="https://www.github.com/chrishutchinson/engineers-guide">
+        <a href="https://www.twitter.com/_engineersguide" className="external">
+          Twitter
+        </a>{" "}
+        |{" "}
+        <a
+          href="https://www.github.com/chrishutchinson/engineers-guide"
+          className="external"
+        >
           GitHub
         </a>
       </footer>
 
       <style jsx>{`
         main {
+          --left-border-width: 14px;
           background: #fff;
-          padding: 20px;
+          padding: 20px 20px 20px calc(20px + var(--left-border-width));
           border: 1px dashed #3a3a3a;
           max-width: 960px;
           margin: 0 auto;
-          box-shadow: 5px 5px 0px #333;
+          box-shadow: 5px 5px 0px #333,
+            inset var(--left-border-width) 0 ${getTheme("light").colors.primary};
+        }
+
+        @media (prefers-color-scheme: dark) {
+          main {
+            background: #333;
+            box-shadow: 5px 5px 0px #555,
+              inset var(--left-border-width) 0
+                ${getTheme("dark").colors.primary};
+          }
         }
 
         @media screen and (min-width: 768px) {
+          --left-border-width: 14px;
+
           main {
-            padding: 50px 20px;
+            padding: 50px 20px 20px calc(20px + var(--left-border-width));
           }
         }
 
@@ -73,7 +71,7 @@ const Layout: React.FC = ({ children }) => {
         }
 
         header h1 {
-          text-transform: uppercase;
+          // text-transform: uppercase;
           letter-spacing: 3px;
           font-weight: 400;
           font-size: 38px;
@@ -84,7 +82,6 @@ const Layout: React.FC = ({ children }) => {
 
         header h1 a {
           text-decoration: none;
-          color: #333;
         }
 
         @media screen and (min-width: 768px) {
@@ -114,6 +111,17 @@ const Layout: React.FC = ({ children }) => {
           right: 0;
           top: 0;
           pointer-events: none;
+        }
+
+        @media (prefers-color-scheme: dark) {
+          nav:after {
+            background: rgb(20, 20, 20);
+            background: linear-gradient(
+              90deg,
+              rgba(20, 20, 20, 0) 0%,
+              rgba(20, 20, 20, 1) 100%
+            );
+          }
         }
 
         nav ul {

@@ -7,11 +7,13 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "deploy": "now"
+    "deploy": "now",
+    "cypress": "cypress"
   },
   "dependencies": {
     "@mdx-js/loader": "^1.5.7",
     "@next/mdx": "^9.2.2",
+    "dayjs": "^1.8.24",
     "mdx": "^0.3.1",
     "next": "^9.3.2",
     "react": "^16.12.0",
@@ -20,6 +22,8 @@
   "devDependencies": {
     "@types/node": "^13.7.4",
     "@types/react": "^16.9.22",
+    "cypress": "^4.4.0",
+    "cypress-plugin-tab": "^1.0.5",
     "now": "^17.0.4",
     "typescript": "^3.8.2"
   }
