@@ -1,4 +1,4 @@
-import Head from "next/head";
+import Link from "next/link";
 import Post from "../../components/Post";
 
 export const meta = {
@@ -15,18 +15,19 @@ export default ({ children }) => <Post meta={meta}>{children}</Post>;
 <p>
   Hello 👋 and welcome to <a href="https://engineers.guide">engineers.guide</a>,
   or <em>An Engineer’s Guide to...</em>. The writing you’ll find here is
-  intended to be straightforward, easy to explore, and with plenty of onward
-  reading. The target audience is engineers (of any kind, but predominantly
-  software engineers), and the subject range will vary within the discipline,
-  and in some cases might even jump out to related disciplines, like design,
-  law, or public speaking.
+  intended to be straightforward and easy to digest, with plenty of onward
+  reading for the curious. It is aimed at anyone that is interested in learning
+  new software engineering concepts. The subject range will vary within the
+  discipline, and in some cases might even jump out to related disciplines that
+  are useful for professional software engineers, including design, user
+  experience and tech compliance.
 </p>
 <p>
   The guides are here to introduce a topic within engineering, and give a strong
-  foundation for you to go and build on that knowledge. No matter your
-  experience, they are written without the need for extensive prior
-  understanding. Any relevant pre-reading will be detailed alongside the guide’s
-  introduction, and critical concepts will be introduced as part of the guide.
+  foundation for you to go and build on that understanding. No matter your
+  experience, they are written without the need for extensive prior knowledge.
+  Any relevant pre-reading will be detailed alongside the guide’s introduction,
+  and critical concepts will be introduced as part of the guide.
 </p>
 <p>
   The guides you’ll find on the site, along with all the code that runs it, are

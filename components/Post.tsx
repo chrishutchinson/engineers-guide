@@ -16,7 +16,7 @@ const Post: React.FC<{
   return (
     <>
       <Head key="post">
-        <title>An Engineer's Guide to... {meta.title}</title>
+        <title>An Engineer's Guide to {meta.title}</title>
         <meta name="description" content={meta.description} />
         <meta name="date" content={meta.publishedDate.toISOString()} />
       </Head>

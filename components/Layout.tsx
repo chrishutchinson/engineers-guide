@@ -1,14 +1,11 @@
-import Head from "next/head";
 import Link from "next/link";
 
-import GlobalStyle from "./GlobalStyle";
-import { getGuides } from "../guides";
 import { getTheme } from "../utils/theme";
+
+import GlobalStyle from "./GlobalStyle";
 import { Accessibility } from "./Accessibility";
 
 const Layout: React.FC = ({ children }) => {
-  const guides = getGuides(4);
-
   return (
     <>
       <GlobalStyle />
@@ -21,21 +18,6 @@ const Layout: React.FC = ({ children }) => {
               <a>An Engineer's Guide to...</a>
             </Link>
           </h1>
-
-          {guides.length > 0 && (
-            <nav>
-              <h2>Latest</h2>
-              <ul>
-                {getGuides(4).map((guide) => (
-                  <li key={guide.slug}>
-                    <Link href={`/to/${guide.slug}`}>
-                      <a>{guide.title}</a>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </nav>
-          )}
         </header>
 
         {children}
@@ -129,6 +111,17 @@ const Layout: React.FC = ({ children }) => {
           right: 0;
           top: 0;
           pointer-events: none;
+        }
+
+        @media (prefers-color-scheme: dark) {
+          nav:after {
+            background: rgb(20, 20, 20);
+            background: linear-gradient(
+              90deg,
+              rgba(20, 20, 20, 0) 0%,
+              rgba(20, 20, 20, 1) 100%
+            );
+          }
         }
 
         nav ul {
