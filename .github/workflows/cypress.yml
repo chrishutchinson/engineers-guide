@@ -27,8 +27,8 @@ jobs:
           echo $DEPLOYMENT_URL
           echo "::set-output name=DEPLOYMENT_URL::$DEPLOYMENT_URL"
       - name: Test URL
-        run: echo ${{ steps.get-deployment-url.DEPLOYMENT_URL }}
+        run: echo ${{ steps.get-deployment-url.outputs.DEPLOYMENT_URL }}
       - name: Cypress run
         uses: cypress-io/github-action@v1
         with:
-          config: baseUrl=${{ steps.get-deployment-url.DEPLOYMENT_URL }}
+          config: baseUrl=${{ steps.get-deployment-url.outputs.DEPLOYMENT_URL }}
