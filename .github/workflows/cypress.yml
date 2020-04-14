@@ -26,6 +26,6 @@ jobs:
           DEPLOYMENT_URL=$(curl --request GET --url "${STATUSES_URL}" | jq -r '.[0].target_url')
           echo "::set-output name=DEPLOYMENT_URL::$DEPLOYMENT_URL"
       - name: Test URL
-        run: echo $(steps.get-deployment-url.DEPLOYMENT_URL)
+        run: echo ${{ steps.get-deployment-url.DEPLOYMENT_URL }}
       - name: Cypress run
         uses: cypress-io/github-action@v1
